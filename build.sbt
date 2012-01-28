@@ -1,8 +1,8 @@
-//build project pis study
+//build project pis study 참고하세요
 
-name := "pis-study"
+name := "my-scala-project"
 
-version := "1.0"
+version := "0.1"
 
 scalaVersion := "2.9.1"
 
