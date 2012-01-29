@@ -1,5 +1,3 @@
-//build project pis study 참고하세요
-
 name := "my-scala-project"
 
 version := "0.1"
