@@ -9,16 +9,17 @@ Scala 프로젝트 기본 템플릿
 
 ## 사용법 
 
-- 본 프로젝트는 아래 제시된 **작업 내역**을 마친 결과물임 
+- 본 프로젝트는 아래 제시된 **작업 내역**의 과정을 거쳐 만들어진 결과물임 
 - 바로 사용하려면 적절한 폴더에 `git clone` 후 
 	1. build.sbt 내용 변경
-		- 프로젝트 명, Scala 버전, 의존 라이브러리 등을 수정함
-		- 현재 ScalaTest가 테스트 용 의존 라이브러리로 추가되어 있음
+		- 작성하려는 프로젝트 명, Scala 버전, 의존 라이브러리 등을 수정함
+		- 테스트 용 의존 라이브러리로 ScalaTest에 대한 의존성이 추가되어 있음
+		- 자주 활용하는 Scalaz에 대한 의존성도 추가되어 있음
 	2. `sbt`
 		- sbt 콘솔 실행
 	3. `eclipse with-source=true`
 		- sbt 콘솔에서 eclipse 프로젝트 생성
-		- with-source 옵션으로 eclipse에서 의존 라이브러리의 소스를 볼 수 있게 추가함
+		- with-source 옵션을 추가하면 eclipse에서 의존 라이브러리의 소스를 볼 수 있게됨
 	4. `test` 혹은 `test-only ${테스트 대상 클래스명}`
 		- 테스트 수행
 		- Sample로 PIS 17장 관련 테스트 케이스가 들어있음. 필요 없으면 삭제할 것
@@ -26,7 +27,7 @@ Scala 프로젝트 기본 템플릿
 
 ## 작업 내역 
 
-0. 이하 해당 프로젝트를 만든 history임
+0. 이하 해당 ScalaTemplate 프로젝트를 만든 history임
 1. SBT 설치 
 	- SBT 버전은 0.11.2
 		- Homebrew 등을 이용하기 보다는 직접 다운로드 후 설치를 권장
@@ -37,21 +38,19 @@ Scala 프로젝트 기본 템플릿
 	- build.sbt
 		- 기본 프로젝트 정보 추가
 		- 의존 라이브러리 추가
-			- 현재 ScalaTest만 추가되어 있으나, 사용하고자 하는 라이브러리를 추가하면 됨
+			- 테스트를 위해 ScalaTest 추가
 			- `libraryDependencies += "org.scalatest" % "scalatest_2.9.1" % "1.6.1" % "test"`
+			- Scalaz 라이브러리 추가
+			- `libraryDependencies += "org.scalaz" %% "scalaz-core" % "6.0.4"%` 
 	- sbteclipse plugin 설치
-		- ${PROJECT_ROOT}/project/plugin.sbt에 sbteclipse플러그인 추가
-		- 현재 plugin.sbt 내용은 다음 한 줄
+	    - SBT를 eclipse 프로젝트로 만들어 주는 플러그인
+		- ${PROJECT_ROOT}/project/plugin.sbt에 sbteclipse플러그인 의존성 추가
+		- 현재 plugin.sbt 내용은 다음 한 줄이면 설치
 			- `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.0.0-M3")`
 			- 당연한 말이지만, sbteclipse 버전은 향후 변경될 수 있음
 3. Git 설정 
 	- .gitignore 작성
 		- SBT 설정과 소스 파일 외 불필요한 내용은 git에 반영하지 않음
-4. Eclipse 프로젝트 설정 
-	- `sbt eclispe`
-		- SBT 콘솔에서 eclipse 명령어로 Eclipse Project를 생성 가능 
-	- `sbt "eclipse with-source=true"`
-		- ScalaTest 등의 주요 라이브러리가 소스 코드 첨부된 형태로 프로젝트가 생성
 
 ## 테스트 관련
 
