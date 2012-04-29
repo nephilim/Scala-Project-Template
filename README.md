@@ -5,31 +5,40 @@ Scala 프로젝트 기본 템플릿
 
 - 스터디 혹은 프로젝트에 사용할 스칼라 기본 프로젝트 생성 시 
   반복되는 스칼라 프로젝트 환경의 기본적인 틀 제시
-- **SBT, Eclipse(Scala IDE), Git, ScalaTest** 를 지원
+- **SBT, Eclipse(Scala IDE), Git, ScalaTest, Scalaz** 를 지원
 
 ## 사용법 
 
-- 본 프로젝트는 아래 제시된 **작업 내역**의 과정을 거쳐 만들어진 결과물임 
-- 바로 사용하려면 적절한 폴더에 `git clone` 후 
+- 사용하려면 적절한 폴더에 `git clone` 후 다음과 같은 과정을 거친다.
+
 	1. build.sbt 내용 변경
 		- 작성하려는 프로젝트 명, Scala 버전, 의존 라이브러리 등을 수정함
-		- 테스트 용 의존 라이브러리로 ScalaTest에 대한 의존성이 추가되어 있음
-		- 자주 활용하는 Scalaz에 대한 의존성도 추가되어 있음
-	2. `sbt`
-		- sbt 콘솔 실행
-	3. `eclipse with-source=true`
-		- sbt 콘솔에서 eclipse 프로젝트 생성
+		- 기본적으로 다음과 같은 라이브러리의 의존성이 추가되어 있음
+			1. ScalaTest - 테스트 
+			2. Scalaz - commons 유틸리티 모음
+	2. 프로젝트 디렉토리에서 sbt 실행
+		- `sbt`
+	3. sbt 콘솔에서 eclipse 프로젝트 생성(ScalaIDE 사용시)
+		- `eclipse with-source=true`
 		- with-source 옵션을 추가하면 eclipse에서 의존 라이브러리의 소스를 볼 수 있게됨
-	4. `test` 혹은 `test-only ${테스트 대상 클래스명}`
-		- 테스트 수행
-		- Sample로 PIS 17장 관련 테스트 케이스가 들어있음. 필요 없으면 삭제할 것
-		- SAMPLE이라는 안내 문서도 test폴더에 포함되어 있음
+	4. 테스트 수행을 위한 sbt 명령어 
+		- `test` 수행
+		- 예제 및 문서(필요 시 삭제)
+			- Sample로 PIS 17장 관련 테스트 케이스가 들어있음 
+			- test폴더에 안내 문서(SAMPLE) 포함
+		- `test-only ${테스트 대상 클래스명}` 도 가능
+	5. eclipse에서 프로젝트 import
+		- import > exisiting project into workpace
+	6. .git 및 README.md 삭제
+		- 새로운 프로젝트를 시작하기 위해 template관리를 위한 내용은 삭제한다
+		- template project는 backup을 만들어 두면 편리하다.
 
 ## 작업 내역 
 
-0. 이하 해당 ScalaTemplate 프로젝트를 만든 history임
+본 프로젝트는 아래 제시된 **작업 내역**의 과정을 거쳐 만들어진 결과물임 
+
 1. SBT 설치 
-	- SBT 버전은 0.11.2
+	- 사용한 SBT 버전은 0.11.2
 		- Homebrew 등을 이용하기 보다는 직접 다운로드 후 설치를 권장
 	- [SBT wiki](https://github.com/harrah/xsbt/wiki/Getting-Started-Setup)에 제시된 내용대로 ~/bin/sbt 생성
 		- 설치 시 콘솔에서의 한글 사용을 위해 file.encoding=UTF-8을 추가함
@@ -45,7 +54,7 @@ Scala 프로젝트 기본 템플릿
 	- sbteclipse plugin 설치
 	    - SBT를 eclipse 프로젝트로 만들어 주는 플러그인
 		- ${PROJECT_ROOT}/project/plugin.sbt에 sbteclipse플러그인 의존성 추가
-		- 현재 plugin.sbt 내용은 다음 한 줄이면 설치
+		- eclipse sbt plugin을 설치하기 위해 plugin.sbt에 다음 한 줄 추가
 			- `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.0.0-M3")`
 			- 당연한 말이지만, sbteclipse 버전은 향후 변경될 수 있음
 3. Git 설정 
