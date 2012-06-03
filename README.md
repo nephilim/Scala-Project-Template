@@ -9,33 +9,7 @@ Scala 프로젝트 기본 템플릿
 
 ## 사용법 
 
-- 사용하려면 적절한 폴더에 `git clone` 후 다음과 같은 과정을 거친다.
-
-	1. build.sbt 내용 변경
-		- 작성하려는 프로젝트 명, Scala 버전, 의존 라이브러리 등을 수정함
-		- 기본적으로 다음과 같은 라이브러리의 의존성이 추가되어 있음
-			1. ScalaTest - 테스트 
-			2. Scalaz - commons 유틸리티 모음
-	2. 프로젝트 디렉토리에서 sbt 실행
-		- `sbt`
-	3. sbt 콘솔에서 eclipse 프로젝트 생성(ScalaIDE 사용시)
-		- `eclipse with-source=true`
-		- with-source 옵션을 추가하면 eclipse에서 의존 라이브러리의 소스를 볼 수 있게됨
-	4. 테스트 수행을 위한 sbt 명령어 
-		- `test` 수행
-		- 예제 및 문서(필요 시 삭제)
-			- Sample로 PIS 17장 관련 테스트 케이스가 들어있음 
-			- test폴더에 안내 문서(SAMPLE) 포함
-		- `test-only ${테스트 대상 클래스명}` 도 가능
-	5. eclipse에서 프로젝트 import
-		- import > exisiting project into workpace
-	6. .git 및 README.md 삭제
-		- 새로운 프로젝트를 시작하기 위해 template관리를 위한 내용은 삭제한다
-		- template project는 backup을 만들어 두면 편리하다.
-
-## 작업 내역 
-
-본 프로젝트는 아래 제시된 **작업 내역**의 과정을 거쳐 만들어진 결과물임 
+### 사전 준비
 
 1. SBT 설치 
 	- 사용한 SBT 버전은 0.11.2
@@ -43,7 +17,56 @@ Scala 프로젝트 기본 템플릿
 	- [SBT wiki](https://github.com/harrah/xsbt/wiki/Getting-Started-Setup)에 제시된 내용대로 ~/bin/sbt 생성
 		- 설치 시 콘솔에서의 한글 사용을 위해 file.encoding=UTF-8을 추가함
 		- ``java -Xmx512M -Dfile.encoding=UTF-8 -jar `dirname $0`/sbt-launch.jar "$@"``
-2. 프로젝트 생성 
+		
+
+### 프로젝트 템플릿 가져오기
+
+1. 작성할 프로젝트가 위치할 directory 생성 후 `git init`
+	- master에서 최소 한 번의 commit을 수행하는 것이 좋다.
+
+2. 다음 명령으로 github의 Scala-Project-Template을 로컬의 project-template 브랜치로 `git fetch`
+
+		git fetch \
+		 git@github.com:nephilim/Scala-Project-Template.git \
+		 master:project-template 
+
+3. master 브랜치와 project-template 브랜치를 merge
+
+		git merge project-template
+
+	- 환경에 따라 fast-foward 되어 master 브랜치가 없을 수도 있음
+
+4. 향후 Scala-Project-Template이 update 되면 필요에 따라 `git fetch` 수행 후 내용을 확인하고, 적절히 merge
+
+### SBT 프로젝트 설정
+
+1. build.sbt 내용 변경
+	- 작성하려는 프로젝트 명, Scala 버전, 의존 라이브러리 등을 수정함
+	- 기본적으로 다음과 같은 라이브러리의 의존성이 추가되어 있음
+		1. ScalaTest - 테스트 
+		2. Scalaz - commons 유틸리티 모음
+2. 프로젝트 디렉토리에서 sbt 실행
+	- `sbt`
+3. sbt 콘솔에서 eclipse 프로젝트 생성(ScalaIDE 사용시)
+	- `eclipse with-source=true`
+	- with-source 옵션을 추가하면 eclipse에서 의존 라이브러리의 소스를 볼 수 있게됨
+4. 테스트 수행을 위한 sbt 명령어 
+	- `test` 수행
+	- 예제 및 문서(필요 시 삭제)
+		- Sample로 PIS 17장 관련 테스트 케이스가 들어있음 
+		- test폴더에 안내 문서(SAMPLE) 포함
+	- `test-only ${테스트 대상 클래스명}` 도 가능
+5. eclipse에서 프로젝트 import
+	- import > exisiting project into workpace
+6. .git 및 README.md 삭제
+	- 새로운 프로젝트를 시작하기 위해 template관리를 위한 내용은 삭제한다
+	- template project는 backup을 만들어 두면 편리하다.
+
+## Scala-Project-Template 작업 내역 
+
+본 프로젝트는 아래 제시된 **작업 내역**을 반영한 결과물임 
+
+1. 프로젝트 생성 
 	- build.sbt
 		- 기본 프로젝트 정보 추가
 		- 의존 라이브러리 추가
@@ -57,7 +80,7 @@ Scala 프로젝트 기본 템플릿
 		- eclipse sbt plugin을 설치하기 위해 plugin.sbt에 다음 한 줄 추가
 			- `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.0.0-M3")`
 			- 당연한 말이지만, sbteclipse 버전은 향후 변경될 수 있음
-3. Git 설정 
+2. Git 설정 
 	- .gitignore 작성
 		- SBT 설정과 소스 파일 외 불필요한 내용은 git에 반영하지 않음
 
