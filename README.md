@@ -21,20 +21,25 @@ Scala 프로젝트 기본 템플릿
 
 ### 프로젝트 템플릿 가져오기
 
-1. 작성할 프로젝트가 위치할 directory 생성 후 `git init`
-	- master에서 최소 한 번의 commit을 수행하는 것이 좋다.
+0. 바로 git clone 후 사용하는 것에 비해 다소 번거롭지만 Scala Project Tempalte의 업데이트를 고려해 다음과 같이 할 것을 권한다.
+
+1. git remote 로 원격지(template) 추가.
+
+		git remote add template git@github.com:nephilim/Scala-Project-Template.git
 
 2. 다음 명령으로 github의 Scala-Project-Template을 로컬의 project-template 브랜치로 `git fetch`
 
-		git fetch \
-		 git@github.com:nephilim/Scala-Project-Template.git \
-		 master:project-template 
+		git fetch template
 
-3. master 브랜치와 project-template 브랜치를 merge
+3. 로컬 추적 브랜치(project-template) 생성 
+
+		git checkout -b project-template template/master
+
+3. 필요시 master 브랜치와 project-template 브랜치를 merge
 
 		git merge project-template
 
-4. 향후 Scala-Project-Template이 update 되면 필요에 따라 `git fetch` 수행 후 내용을 확인하고, 적절히 merge
+4. 향후 Scala-Project-Template이 update 되면 `git fetch template` 후 내용을 확인하고, 적절히 merge함
 
 ### SBT 프로젝트 설정
 
@@ -44,7 +49,6 @@ Scala 프로젝트 기본 템플릿
 		1. ScalaTest - 테스트 
 		2. Scalaz - commons 유틸리티 모음
 	- 사용자 라이브러리는 기존 라이브러리와 같은 `groupId % artifactId % version` 형식으로 build.sbt에 추가하면 됨 
-		
 	- 기본 Repository로 scala-tools를 이용함
 		- [scala-tools-releases](http://scala-tools.org/repo-releases)
 		- [scala-tools-snapshots](http://scala-tools.org/repo-snapshots)
