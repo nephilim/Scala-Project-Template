@@ -34,8 +34,6 @@ Scala 프로젝트 기본 템플릿
 
 		git merge project-template
 
-	- 환경에 따라 fast-foward 되어 master 브랜치가 없을 수도 있음
-
 4. 향후 Scala-Project-Template이 update 되면 필요에 따라 `git fetch` 수행 후 내용을 확인하고, 적절히 merge
 
 ### SBT 프로젝트 설정
@@ -45,6 +43,12 @@ Scala 프로젝트 기본 템플릿
 	- 기본적으로 다음과 같은 라이브러리의 의존성이 추가되어 있음
 		1. ScalaTest - 테스트 
 		2. Scalaz - commons 유틸리티 모음
+	- 사용자 라이브러리는 기존 라이브러리와 같은 `groupId % artifactId % version` 형식으로 build.sbt에 추가하면 됨 
+		
+	- 기본 Repository로 scala-tools를 이용함
+		- [scala-tools-releases](http://scala-tools.org/repo-releases)
+		- [scala-tools-snapshots](http://scala-tools.org/repo-snapshots)
+
 2. 프로젝트 디렉토리에서 sbt 실행
 	- `sbt`
 3. sbt 콘솔에서 eclipse 프로젝트 생성(ScalaIDE 사용시)
