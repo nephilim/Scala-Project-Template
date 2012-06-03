@@ -17,7 +17,6 @@ Scala 프로젝트 기본 템플릿
 	- [SBT wiki](https://github.com/harrah/xsbt/wiki/Getting-Started-Setup)에 제시된 내용대로 ~/bin/sbt 생성
 		- 설치 시 콘솔에서의 한글 사용을 위해 file.encoding=UTF-8을 추가함
 		- ``java -Xmx512M -Dfile.encoding=UTF-8 -jar `dirname $0`/sbt-launch.jar "$@"``
-		
 
 ### 프로젝트 템플릿 가져오기
 
@@ -49,9 +48,9 @@ Scala 프로젝트 기본 템플릿
 		1. ScalaTest - 테스트 
 		2. Scalaz - commons 유틸리티 모음
 	- 사용자 라이브러리는 기존 라이브러리와 같은 `groupId % artifactId % version` 형식으로 build.sbt에 추가하면 됨 
-	- 기본 Repository로 scala-tools를 이용함
-		- [scala-tools-releases](http://scala-tools.org/repo-releases)
-		- [scala-tools-snapshots](http://scala-tools.org/repo-snapshots)
+	- 기본 Repository로 Sonatype's Maven repository 를 이용함
+		- [scala-tools releases](https://oss.sonatype.org/content/groups/scala-tools)
+		- [scala-tools snapshots](https://oss.sonatype.org/content/repositories/snapshots)
 
 2. 프로젝트 디렉토리에서 sbt 실행
 	- `sbt`
