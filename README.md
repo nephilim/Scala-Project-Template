@@ -22,23 +22,25 @@ Scala 프로젝트 기본 템플릿
 
 0. 바로 git clone 후 사용하는 것에 비해 다소 번거롭지만 Scala Project Tempalte의 업데이트를 고려해 다음과 같이 할 것을 권한다.
 
-1. git remote 로 원격지(template) 추가.
+1. 고유한 프로젝트 폴더 생성 후 `git init`
+
+2. git remote 로 원격지(template) 추가.
 
 		git remote add template git@github.com:nephilim/Scala-Project-Template.git
 
-2. 다음 명령으로 github의 Scala-Project-Template을 로컬의 project-template 브랜치로 `git fetch`
+3. 다음 명령으로 github의 Scala-Project-Template을 로컬의 project-template 브랜치로 `git fetch`
 
 		git fetch template
 
-3. 로컬 추적 브랜치(project-template) 생성 
+4. 로컬 추적 브랜치(project-template) 생성 
 
 		git checkout -b project-template template/master
 
-3. 필요시 master 브랜치와 project-template 브랜치를 merge
+5. 필요시 master 브랜치와 project-template 브랜치를 merge
 
 		git merge project-template
 
-4. 향후 Scala-Project-Template이 update 되면 `git fetch template` 후 내용을 확인하고, 적절히 merge함
+6. 향후 Scala-Project-Template이 update 되면 `git fetch template` 후 내용을 확인하고, 적절히 merge함
 
 ### SBT 프로젝트 설정
 
