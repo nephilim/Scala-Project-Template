@@ -1,14 +1,13 @@
 name := "my-scala-project"
 
-version := "0.4"
+version := "0.5"
 
-scalaVersion := "2.9.2"
+scalaVersion := "2.10.1"
 
 libraryDependencies += "junit" % "junit" % "4.9" % "test"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "1.7.2" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "1.9.1" % "test"
 
-libraryDependencies += "org.scalaz" %% "scalaz-core" % "6.0.4"
-
-/* add project library ('groupId % artifactId % version' seperated by comma) */
+/* add custom project library 
+   Seq('groupId % artifactId % version', '...') */
 libraryDependencies ++= Seq()
